@@ -1,0 +1,98 @@
+
+{% extends "Home.html" %}
+
+	{% block content %}
+
+		<h3 class="heading text-primary">Dataset Statistics</h3>
+		<form id="frm" name="frm" method="post" action="/ProcessStatistics" enctype="multipart/form-data">
+			<div class="form-group row m-5">
+                <div class="col-sm-2">&nbsp;</div>
+                <label for="NoofSamples" class="col-sm-2 col-form-label">No of Samples </label>
+                <div class="col-sm-4">
+                    <select class="form-control" id="NoofSamples" name="NoofSamples">
+                        <option value="10" {{"selected" if NoofSamples == "10"}}>10</option>
+						<option value="25" {{"selected" if NoofSamples == "25"}}>25</option>
+						<option value="50" {{"selected" if NoofSamples == "50"}}>50</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">&nbsp;</div>
+            </div>
+			<div class="text-center my-2">
+				<button type="submit" class="btn btn-outline-primary btn-sm">Generate</button>
+			</div>
+		</form>
+		{% if displayResult == True %}
+		<div class="text-center">
+			
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th scope="col" style="width:auto">Date</th>
+                    <th scope="col" style="width:auto">Top 1</th>
+                    <th scope="col" style="width:auto">Top 2</th>
+                    <th scope="col" style="width:auto">Top 3</th>
+                    <th scope="col" style="width:auto">Top 4</th>
+                    <th scope="col" style="width:auto">Top 5</th>
+                    <th scope="col" style="width:auto">Top 6</th>
+                    <th scope="col" style="width:auto">Top 7</th>
+                    <th scope="col" style="width:auto">Top 8</th>
+                    <th scope="col" style="width:auto">Top 9</th>
+                    <th scope="col" style="width:auto">Top 10</th>
+                    <th scope="col" style="width:auto">Top 11</th>
+                    <th scope="col" style="width:auto">Top 12</th>
+                    <th scope="col" style="width:auto">Top 13</th>
+                    <th scope="col" style="width:auto">Top 14</th>
+                    <th scope="col" style="width:auto">Top 15</th>
+                    <th scope="col" style="width:auto">Top 16</th>
+                    <th scope="col" style="width:auto">Top 17</th>
+                    <th scope="col" style="width:auto">Top 18</th>
+                    <th scope="col" style="width:auto">Top 19</th>
+                    <th scope="col" style="width:auto">Top 21</th>
+                    <th scope="col" style="width:auto">Top 22</th>
+                    <th scope="col" style="width:auto">Top 23</th>
+                    <th scope="col" style="width:auto">Top 24</th>
+                    <th scope="col" style="width:auto">Top 25</th>
+                    <th scope="col" style="width:auto">Label</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key,value in records.iterrows() %}
+                    <tr>
+                        <td>{{ value["Date"]  }}</td>
+                        <td>{{ value["Top1"]  }}</td>
+                        <td>{{ value["Top2"]  }}</td>
+                        <td>{{ value["Top3"]  }}</td>
+                        <td>{{ value["Top4"]  }}</td>
+                        <td>{{ value["Top5"]  }}</td>
+                        <td>{{ value["Top6"]  }}</td>
+                        <td>{{ value["Top7"]  }}</td>
+                        <td>{{ value["Top8"]  }}</td>
+                        <td>{{ value["Top9"]  }}</td>
+                        <td>{{ value["Top10"]  }}</td>
+                        <td>{{ value["Top11"]  }}</td>
+                        <td>{{ value["Top12"]  }}</td>
+                        <td>{{ value["Top13"]  }}</td>
+                        <td>{{ value["Top14"]  }}</td>
+                        <td>{{ value["Top15"]  }}</td>
+                        <td>{{ value["Top16"]  }}</td>
+                        <td>{{ value["Top17"]  }}</td>
+                        <td>{{ value["Top18"]  }}</td>
+                        <td>{{ value["Top19"]  }}</td>
+                        <td>{{ value["Top20"]  }}</td>
+                        <td>{{ value["Top21"]  }}</td>
+                        <td>{{ value["Top22"]  }}</td>
+                        <td>{{ value["Top23"]  }}</td>
+                        <td>{{ value["Top24"]  }}</td>
+                        <td>{{ value["Top25"]  }}</td>
+                        <td>{{ value["Label"]  }}</td>
+                    </tr>
+                {% endfor %}
+               </tbody>
+            </table>
+    
+		</div>
+
+    	{% endif %}
+    
+{% endblock %}
+    

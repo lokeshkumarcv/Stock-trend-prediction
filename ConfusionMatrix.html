@@ -1,0 +1,27 @@
+{% extends "Home.html" %}
+
+	{% block content %}
+
+		<h3 class="heading text-primary">Confusion Matrix</h3>
+		<form id="frm" name="frm" method="post" action="/ProcessConfusionMatrix" enctype="multipart/form-data">
+
+			<div class="text-center my-2">
+				<button type="submit" class="btn btn-outline-primary btn-sm">Generate</button>
+			</div>
+		</form>
+		{% if displayResult == True %}
+		<div class="text-center alert alert-info">
+
+            Accuracy Score: <b>{{accuracy_score}}</b>
+
+		</div>
+		<div class="text-center">
+
+            <img class="img-fluid" src="static/Output/ConfusionMatrix.png" />
+
+		</div>
+
+    	{% endif %}
+
+{% endblock %}
+

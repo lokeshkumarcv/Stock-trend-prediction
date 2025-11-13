@@ -1,0 +1,32 @@
+
+{% extends "Home.html" %}
+
+	{% block content %}
+
+		<h3 class="heading text-primary">Text Preprocessing</h3>
+		<form id="frm" name="frm" method="post" action="/ProcessTextPreprocessing" enctype="multipart/form-data">
+			
+			<div class="text-center my-2">
+				<button type="submit" class="btn btn-outline-primary btn-sm">Generate</button>
+			</div>
+		</form>
+		{% if displayResult == True %}
+		<div class="text-center">
+			
+            <div class="text-center alert alert-info">
+
+            Vocabulary size: <b>{{vocabulary_size}}</b>
+
+		    </div>
+            <div class="text-center alert alert-info">
+
+            Number of Documents: <b>{{number_of_documents}}</b>
+
+		    </div>
+
+		</div>
+
+    	{% endif %}
+    
+{% endblock %}
+    

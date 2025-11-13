@@ -1,0 +1,23 @@
+
+{% extends "Home.html" %}
+
+	{% block content %}
+
+		<h3 class="heading text-primary">Stock Labels</h3>
+		<form id="frm" name="frm" method="post" action="/ProcessStockLabels" enctype="multipart/form-data">
+			
+			<div class="text-center my-2">
+				<button type="submit" class="btn btn-outline-primary btn-sm">Generate</button>
+			</div>
+		</form>
+		{% if displayResult == True %}
+		<div class="text-center">
+			
+            <img class="img-fluid" src="static/Output/StockLabels.png" />
+
+		</div>
+
+    	{% endif %}
+    
+{% endblock %}
+    

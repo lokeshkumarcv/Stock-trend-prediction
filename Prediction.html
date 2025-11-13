@@ -1,0 +1,27 @@
+{% extends "Home.html" %}
+
+{% block content %}
+
+<h3 class="heading text-primary">Prediction</h3>
+<form action="/ProcessPrediction" enctype="multipart/form-data" id="frm" method="post" name="frm">
+    <label class="col-sm-2 col-form-label" for="nlptext">Enter Text</label>
+    <div class="col-sm-4">
+        <textarea row="5" name="nlptext" id="nlptext" class="form-control"></textarea>
+    </div>
+    <div class="text-center my-2">
+        <button class="btn btn-outline-primary btn-sm" type="submit">Generate</button>
+    </div>
+</form>
+<!-- old -->
+{% if displayResult == True %}
+<p><b>Your Text:</b> {{nlptext}}</p>
+<div class="text-center">
+<div class="text-center alert alert-info">
+    Prediction: <b>{{prediction_message}}</b>
+</div>
+</div>
+{% endif %}
+
+<!-- old -->
+{% endblock %}
+    
